@@ -44,22 +44,22 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <div className={"header"}>
-                    <div>
+            <div className="App">
+                <div className="Header">
+                    <div className="Search">
                         <h2>Поиск по ключевым словам</h2>
-                        <input type={"text"}/>
+                        <input type={"text"} placeholder={"Поиск"}/>
                     </div>
-                    <div>
+                </div>
+                    <div className="Filter">
                         <h2>Фильтровать статьи по </h2>
                         <Select></Select>
                         <Select></Select>
                         <Select></Select>
                     </div>
                     <div className={"MainBlock"}>
-
+                        {/*News*/}
                     </div>
-                </div>
             </div>
         )
     }
