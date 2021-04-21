@@ -51,7 +51,7 @@ class App extends Component {
                 <div className="Header">
                     <div className="Search">
                         <p>Поиск по ключевым словам</p>
-                        <InputFilter placeholder="Поиск"></InputFilter>
+                        <InputFilter img={Logo} placeholder="Поиск"></InputFilter>
                     </div>
 
                     <div className="Filter">
