@@ -26,6 +26,11 @@ class App extends Component {
         }, ms))
     }
 
+    GetData = () => {
+        this.GetDataCards()
+        this.GetDataFilters()
+    }
+
     GetDataFilters = () => {
         console.log("StartGetDataFilters...")
         fetch(this.state.urlFilters).then((response) => {
@@ -42,6 +47,7 @@ class App extends Component {
             return response.json()
         }).then((data) =>{
             this.setState({dataCards: data})
+            console.log(this.state.dataCards)
         })
     }
 
@@ -61,7 +67,7 @@ class App extends Component {
                         <Select></Select>
                     </div>
                     <div className={"MainBlock"}>
-                        {/*News*/}
+                        <CardsMenu dataCards={this.state.dataCards}></CardsMenu>
                     </div>
                 </div>
             </div>
