@@ -8,7 +8,7 @@ class App extends Component {
         urlFilters: "https://api.jsonbin.io/b/5d4beaabf090a433857b567a/latest",
         urlCards: "https://api.jsonbin.io/b/5d4be91d00947c04a5a75da2/latest",
         dataFilter: null,
-
+        dataCards: null
     }
 
     Delay(ms) {
@@ -22,23 +22,29 @@ class App extends Component {
             return response.json();
         })
             .then((data) => {
-                console.log(data);
                 this.setState({dataFilter: data})
-                console.log(this.state.dataFilter);
             });
+    }
+
+    GetDataCards = () => {
+        console.log("StartGetDataCards")
+        fetch(this.state.urlCards).then((response) =>{
+            return response.json()
+        }).then((data) =>{
+            this.setState({dataCards: data})
+        })
     }
 
 
     GetData = () => {
-        console.log(this.state.dataFilter.videos)
-        MainPanel.bind(this.state.dataFilter.videos)
+
     }
 
     render() {
         return (
             <div>
-                <MainPanel data={this.state.dataFilter}></MainPanel>
-                <button onClick={this.GetDataFilters}>GetFilters</button>
+                <button onClick={this.GetDataFilters}>Get Filters</button>
+                <button onClick={this.GetDataCards}>Get Cards</button>
                 <button onClick={this.GetData}>ConsoleLogData</button>
             </div>
         );
