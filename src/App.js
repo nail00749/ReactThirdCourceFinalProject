@@ -1,8 +1,16 @@
-import React, {Component} from "react";
-import './App.css';
-import MainPanel from "./Components/MainPanel";
+import React, {Component} from "react"
+import './App.css'
+import './Components/Select'
+import Select from "./Components/Select";
+
 
 class App extends Component {
+
+
+    constructor() {
+        super()
+        this.GetData()
+    }
 
     state = {
         urlFilters: "https://api.jsonbin.io/b/5d4beaabf090a433857b567a/latest",
@@ -10,7 +18,6 @@ class App extends Component {
         dataFilter: null,
         dataCards: null
     }
-
     Delay(ms) {
         return new Promise(resolve => setTimeout(() => {
         }, ms))
@@ -19,11 +26,11 @@ class App extends Component {
     GetDataFilters = () => {
         console.log("StartGetDataFilters...")
         fetch(this.state.urlFilters).then((response) => {
-            return response.json();
+            return response.json()
         })
             .then((data) => {
                 this.setState({dataFilter: data})
-            });
+            })
     }
 
     GetDataCards = () => {
@@ -35,21 +42,28 @@ class App extends Component {
         })
     }
 
-
-    GetData = () => {
-
-    }
-
     render() {
         return (
             <div>
-                <button onClick={this.GetDataFilters}>Get Filters</button>
-                <button onClick={this.GetDataCards}>Get Cards</button>
-                <button onClick={this.GetData}>ConsoleLogData</button>
+                <div className={"header"}>
+                    <div>
+                        <h2>Поиск по ключевым словам</h2>
+                        <input type={"text"}/>
+                    </div>
+                    <div>
+                        <h2>Фильтровать статьи по </h2>
+                        <Select></Select>
+                        <Select></Select>
+                        <Select></Select>
+                    </div>
+                    <div className={"MainBlock"}>
+
+                    </div>
+                </div>
             </div>
-        );
+        )
     }
 }
 
 
-export default App;
+export default App
