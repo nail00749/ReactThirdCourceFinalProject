@@ -3,13 +3,11 @@ import './App.css'
 import './Components/Select'
 import Select from "./Components/Select";
 import InputFilter from "./Components/InputFilter";
-import Logo from "/public/iconLypa.png"
+import Logo from "./iconLypa.png"
 import CardsMenu from "./Components/CardsMenu";
 
 
 class App extends Component {
-
-
     constructor() {
         super()
         this.GetData()
@@ -57,7 +55,7 @@ class App extends Component {
                 <div className="Header">
                     <div className="Search">
                         <p>Поиск по ключевым словам</p>
-                        <InputFilter img={Logo} placeholder="Поиск"></InputFilter>
+                        <InputFilter  placeholder="Поиск"></InputFilter>
                     </div>
 
                     <div className="Filter">
@@ -66,10 +64,11 @@ class App extends Component {
                         <Select></Select>
                         <Select></Select>
                     </div>
+                </div>
                     <div className={"MainBlock"}>
                         <CardsMenu dataCards={this.state.dataCards}></CardsMenu>
                     </div>
-                </div>
+
             </div>
         )
     }
