@@ -1,18 +1,22 @@
-import React  from "react";
+import React from "react";
 
-class CardsMenu extends React.Component{
+class CardsMenu extends React.Component {
 
     constructor(props) {
         super();
     }
 
     render() {
-        let listItems = this.props.dataCards.map((dataCards) =>
-            <div>{dataCards.text}</div>
-        )
-        return (
-            <div>{listItems}</div>
-        );
+        if (this.props.dataCards) {
+            let listItems = this.props.dataCards.map((dataCards) =>
+                <div>{dataCards.text}</div>
+            )
+            return (
+                <div>{listItems}</div>
+            );
+        } else {
+            return <div></div>
+        }
     }
 }
 
