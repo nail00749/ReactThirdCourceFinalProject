@@ -2,6 +2,9 @@ import React, {Component} from "react"
 import './App.css'
 import './Components/Select'
 import Select from "./Components/Select";
+import InputFilter from "./Components/InputFilter";
+import Logo from "/public/iconLypa.png"
+import CardsMenu from "./Components/CardsMenu";
 
 
 class App extends Component {
@@ -47,12 +50,12 @@ class App extends Component {
             <div className="App">
                 <div className="Header">
                     <div className="Search">
-                        <h2>Поиск по ключевым словам</h2>
-                        <input type={"text"} placeholder={"Поиск"}/>
+                        <p>Поиск по ключевым словам</p>
+                        <InputFilter placeholder="Поиск"></InputFilter>
                     </div>
-                </div>
+
                     <div className="Filter">
-                        <h2>Фильтровать статьи по </h2>
+                        <p>Фильтровать статьи по </p>
                         <Select></Select>
                         <Select></Select>
                         <Select></Select>
@@ -60,6 +63,7 @@ class App extends Component {
                     <div className={"MainBlock"}>
                         {/*News*/}
                     </div>
+                </div>
             </div>
         )
     }
