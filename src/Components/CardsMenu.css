@@ -12,6 +12,10 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.hidden {
+    display: none;
+}
+
 .Card {
     border: 1px solid rgba(55, 75, 236, 0.62);
     margin: 10px;

@@ -5,13 +5,22 @@ class CardsMenu extends React.Component {
 
     constructor(props) {
         super();
+        this.state ={
+            count: 2
+        }
+
+    }
+
+    increaseCounter = () => {
+        let newCount = this.state.count + 3
+        this.setState({count: newCount})
     }
 
     render() {
         if (this.props.dataCards) {
             let listItems = this.props.dataCards.map((dataCards) =>
-                <div key={dataCards.id} className="Card">
-                    <div className="CardImage">
+                <div key={dataCards.id} className={dataCards.id > this.state.count ? "hidden" : "Card"}>
+                    <div className="CardImage ">
                         <img src='https://smoking-shop.ru/upload/catalog_files/ce4/ce49cfe5904c8982d9aba7a61d699d4a.jpg'
                              alt='hmmm'/>
                     </div>
@@ -22,7 +31,12 @@ class CardsMenu extends React.Component {
                 </div>
             )
             return (
-                <div className='CardsMenu'>{listItems}</div>
+                <div className='CardsMenu'>
+                    {listItems}
+                    <div>
+                        <button onClick={this.increaseCounter}>Показать больше</button>
+                    </div>
+                </div>
             );
         } else {
             return <div></div>
