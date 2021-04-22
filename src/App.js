@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     state = {
-        urlFilters: "https://gist.github.com/Wifelly/1bfea8f20244eef1c2cc9c5f552ddde4",
+        urlFilters: "https://gist.githubusercontent.com/Wifelly/1bfea8f20244eef1c2cc9c5f552ddde4/raw/e349d7288dee6137939554a4eebc35c3cec707b5/cardsFiltersJson",
         urlCards: "https://gist.githubusercontent.com/Wifelly/e3085716e924e76a3f992cc2a4047b89/raw/d12a5d1dff0e0fde75e6af40a38e9d95e31d0c50/cardsJson",
         dataFilter: "",
         dataCards: null
