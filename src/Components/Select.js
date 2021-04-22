@@ -6,14 +6,30 @@ class Select extends React.Component{
         super();
     }
 
+
+
     render() {
-        return (
-            <div>
-                <select>
-                    {this.props.list}
-                </select>
-            </div>
-        );
+
+        if(this.props.options) {
+            let listItems = this.props.options
+            console.log(listItems)
+            return (
+                <div>
+                    <select>
+                        {listItems}
+                    </select>
+                </div>
+            )
+        }else{
+            return (
+                <div>
+
+                </div>
+            )
+        }
+
+
+
     }
 }
 
