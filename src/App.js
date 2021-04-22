@@ -14,9 +14,9 @@ class App extends Component {
     }
 
     state = {
-        urlFilters: "https://api.jsonbin.io/b/5d4beaabf090a433857b567a/latest",
-        urlCards: "https://api.jsonbin.io/b/5d4be91d00947c04a5a75da2/latest",
-        dataFilter: null,
+        urlFilters: "https://gist.github.com/Wifelly/1bfea8f20244eef1c2cc9c5f552ddde4",
+        urlCards: "https://gist.githubusercontent.com/Wifelly/e3085716e924e76a3f992cc2a4047b89/raw/d12a5d1dff0e0fde75e6af40a38e9d95e31d0c50/cardsJson",
+        dataFilter: "",
         dataCards: null
     }
     Delay(ms) {
@@ -36,6 +36,7 @@ class App extends Component {
         })
             .then((data) => {
                 this.setState({dataFilter: data})
+                console.log(this.state.dataFilter)
             })
     }
 
@@ -60,7 +61,7 @@ class App extends Component {
 
                     <div className="Filter">
                         <p>Фильтровать статьи по </p>
-                        <Select></Select>
+                        <Select options={this.state.dataFilter.levels}></Select>
                         <Select></Select>
                         <Select></Select>
                     </div>
