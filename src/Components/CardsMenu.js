@@ -34,7 +34,7 @@ class CardsMenu extends React.Component {
                 <div className='CardsMenu'>
                     {listItems}
                     <div>
-                        <button onClick={this.increaseCounter}>Показать больше</button>
+                        <button onClick={this.increaseCounter} className="button">Показать больше</button>
                     </div>
                 </div>
             );
