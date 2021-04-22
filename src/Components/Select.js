@@ -1,4 +1,5 @@
 import React  from "react";
+import {logDOM} from "@testing-library/react";
 
 class Select extends React.Component{
 
@@ -6,17 +7,20 @@ class Select extends React.Component{
         super();
     }
 
-
-
     render() {
 
         if(this.props.options) {
-            let listItems = this.props.options
-            console.log(listItems)
+            let listItems = ['']
+            this.props.options.forEach(item => listItems.push(item))
+
+            let list = listItems.map((item) => <option>{item.toString()}</option>)
+            console.log(list)
+
+
             return (
                 <div>
                     <select>
-                        {listItems}
+                        {list}
                     </select>
                 </div>
             )

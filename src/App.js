@@ -34,10 +34,10 @@ class App extends Component {
         fetch(this.state.urlFilters).then((response) => {
             return response.json()
         })
-            .then((data) => {
-                this.setState({dataFilter: data})
-                console.log(this.state.dataFilter)
-            })
+        .then((data) => {
+            this.setState({dataFilter: data})
+            console.log(this.state.dataFilter)
+        })
     }
 
     GetDataCards = () => {
@@ -62,8 +62,9 @@ class App extends Component {
                     <div className="Filter">
                         <p>Фильтровать статьи по </p>
                         <Select options={this.state.dataFilter.levels}></Select>
-                        <Select></Select>
-                        <Select></Select>
+                        <Select options={this.state.dataFilter.categories}></Select>
+                        <Select options={this.state.dataFilter.languages}></Select>
+                        <Select options={this.state.dataFilter.videos}></Select>
                     </div>
                 </div>
                     <div className={"MainBlock"}>
