@@ -7,19 +7,17 @@ class Select extends React.Component{
         super();
     }
 
+
     render() {
 
         if(this.props.options) {
             let listItems = ['']
             this.props.options.forEach(item => listItems.push(item))
-
             let list = listItems.map((item) => <option>{item.toString()}</option>)
-            console.log(list)
-
 
             return (
                 <div>
-                    <select>
+                    <select onChange={this.props.onChange}>
                         {list}
                     </select>
                 </div>

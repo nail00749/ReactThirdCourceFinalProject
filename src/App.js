@@ -11,13 +11,20 @@ class App extends Component {
     constructor() {
         super()
         this.GetData()
+        this.GetFilter = this.GetFilter.bind(this)
     }
 
     state = {
         urlFilters: "https://gist.githubusercontent.com/Wifelly/1bfea8f20244eef1c2cc9c5f552ddde4/raw/e349d7288dee6137939554a4eebc35c3cec707b5/cardsFiltersJson",
         urlCards: "https://gist.githubusercontent.com/Wifelly/e3085716e924e76a3f992cc2a4047b89/raw/d12a5d1dff0e0fde75e6af40a38e9d95e31d0c50/cardsJson",
         dataFilter: "",
-        dataCards: null
+        dataCards: null,
+        filter:{
+            levels: '',
+            categories: '',
+            languages: '',
+            videos: '',
+        }
     }
     Delay(ms) {
         return new Promise(resolve => setTimeout(() => {
@@ -36,7 +43,6 @@ class App extends Component {
         })
         .then((data) => {
             this.setState({dataFilter: data})
-            console.log(this.state.dataFilter)
         })
     }
 
@@ -46,8 +52,13 @@ class App extends Component {
             return response.json()
         }).then((data) =>{
             this.setState({dataCards: data})
-            console.log(this.state.dataCards)
         })
+    }
+
+    GetFilter(e, filter){
+        this.setState({e: filter})
+        console.log(e)
+        console.log(filter)
     }
 
     render() {
@@ -61,10 +72,10 @@ class App extends Component {
 
                     <div className="Filter">
                         <p>Фильтровать статьи по </p>
-                        <Select options={this.state.dataFilter.levels}></Select>
-                        <Select options={this.state.dataFilter.categories}></Select>
-                        <Select options={this.state.dataFilter.languages}></Select>
-                        <Select options={this.state.dataFilter.videos}></Select>
+                        <Select onChange={this.GetFilter} options={this.state.dataFilter.levels}></Select>
+                        <Select onChange={this.GetFilter} options={this.state.dataFilter.categories}></Select>
+                        <Select onChange={this.GetFilter} options={this.state.dataFilter.languages}></Select>
+                        <Select onChange={this.GetFilter} options={this.state.dataFilter.videos}></Select>
                     </div>
                 </div>
                     <div className={"MainBlock"}>
