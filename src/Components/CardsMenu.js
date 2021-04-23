@@ -5,14 +5,14 @@ class CardsMenu extends React.Component {
 
     constructor(props) {
         super();
-        this.state = {
+        this.state ={
             count: 2
         }
 
     }
 
     increaseCounter = () => {
-        let newCount = this.state.count + 3
+        let newCount = this.state.count + 300
         this.setState({count: newCount})
     }
 
