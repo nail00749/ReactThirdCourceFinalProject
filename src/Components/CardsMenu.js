@@ -5,7 +5,7 @@ class CardsMenu extends React.Component {
 
     constructor(props) {
         super();
-        this.state ={
+        this.state = {
             count: 2
         }
 
@@ -35,9 +35,7 @@ class CardsMenu extends React.Component {
                     <div className='CardsMenu'>
                         {listItems}
                     </div>
-                    <div>
-                        <button onClick={this.increaseCounter} className="button">Показать больше</button>
-                    </div>
+                    <button onClick={this.increaseCounter} className="button">Показать больше</button>
                 </div>
             );
         } else {

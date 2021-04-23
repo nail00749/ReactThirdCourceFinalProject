@@ -1,7 +1,10 @@
+.CardImage {
+    overflow: hidden;
+}
+
 .CardImage > img {
     max-width: 100%;
     max-height: 100%;
-
 }
 
 .CardsMenu {
@@ -21,10 +24,18 @@
     margin: 10px;
 }
 
+.Card:hover {
+    background-color: #89fff8;
+}
+
+.Card:hover img {
+    transform:scale(1.05);
+}
+
 .button {
-    position: absolute;
-    left: 50%;
-    display: inline-block;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     padding: 15px 25px;
     font-size: 24px;
     cursor: pointer;
