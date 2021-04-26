@@ -10,8 +10,6 @@ import CardsMenu from "./Components/CardsMenu";
 class App extends Component {
     constructor(props) {
         super(props)
-
-
         this.state = {
             urlFilters: "https://gist.githubusercontent.com/Wifelly/1bfea8f20244eef1c2cc9c5f552ddde4/raw/e349d7288dee6137939554a4eebc35c3cec707b5/cardsFiltersJson",
             urlCards: "https://gist.githubusercontent.com/Wifelly/e3085716e924e76a3f992cc2a4047b89/raw/d12a5d1dff0e0fde75e6af40a38e9d95e31d0c50/cardsJson",
@@ -25,7 +23,7 @@ class App extends Component {
             }
         }
 
-        this.GetData()
+
         this.GetFilterLevels = this.GetFilterLevels.bind(this)
         this.GetFilterCategories = this.GetFilterCategories.bind(this)
         this.GetFilterLanguages = this.GetFilterLanguages.bind(this)
@@ -33,20 +31,10 @@ class App extends Component {
         console.log(this.state.dataFilter)
     }
 
-
-    Delay(ms) {
-        return new Promise(resolve => setTimeout(() => {
-        }, ms))
+    componentDidMount() {
+        this.GetData()
     }
 
-    onSubmit (e){
-        const {filter} = this.state
-        switch (filter) {
-            case 'levels':
-                this.setState({levels: e})
-                break
-        }
-    }
 
     GetData = () => {
         this.GetDataCards()
@@ -86,16 +74,14 @@ class App extends Component {
 
     GetFilterVideos(e){
         let dick = this.state.dict
-        dick.videos = e.target.value
+        dick.isVideo = e.target.value
         this.setState({dict: dick})
-        console.log(this.state.dict)
     }
 
     GetFilterLanguages(e){
         let dick = this.state.dict
         dick.languages = e.target.value
         this.setState({dict: dick})
-
     }
 
 

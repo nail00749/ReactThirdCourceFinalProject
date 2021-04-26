@@ -8,7 +8,6 @@ class CardsMenu extends React.Component {
         this.state = {
             count: 2
         }
-
     }
 
     increaseCounter = () => {
@@ -16,10 +15,35 @@ class CardsMenu extends React.Component {
         this.setState({count: newCount})
     }
 
+    filterList = (list, filters) => {
+        console.log(list)
+        console.log(filters)
+        // if(filters.levels !== ""){
+        //     console.log('zalypa')
+        // }
+
+
+        ///
+
+        return list
+    }
+
+
+    resetIndex = (list) => {
+        let temp = list
+        for (const [index, element] of temp.entries()) {
+            temp[index].id = index
+        }
+        return temp
+    }
+
+
+    //dataCards.id > this.state.count ? "hidden" :
     render() {
         if (this.props.dataCards) {
+            let listF = this.filterList(this.props.dataCards, this.props.filters)
             let listItems = this.props.dataCards.map((dataCards) =>
-                <div key={dataCards.id} className={dataCards.id > this.state.count ? "hidden" : "Card"} onClick={this.props.click}>
+                <div key={dataCards.id} className={"Card"} onClick={this.props.click}>
                     <div className="CardImage ">
                         <img src='https://smoking-shop.ru/upload/catalog_files/ce4/ce49cfe5904c8982d9aba7a61d699d4a.jpg'
                              alt='hmmm'/>
