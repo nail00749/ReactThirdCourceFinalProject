@@ -117,7 +117,7 @@ class App extends Component {
                     </div>
                 </div>
                     <div className={"MainBlock"}>
-                        <CardsMenu dataCards={this.state.dataCards}></CardsMenu>
+                        <CardsMenu dataCards={this.state.dataCards} filters={this.state.dict}></CardsMenu>
                     </div>
 
             </div>

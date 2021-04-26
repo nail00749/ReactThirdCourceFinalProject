@@ -19,7 +19,7 @@ class CardsMenu extends React.Component {
     render() {
         if (this.props.dataCards) {
             let listItems = this.props.dataCards.map((dataCards) =>
-                <div key={dataCards.id} className={dataCards.id > this.state.count ? "hidden" : "Card"}>
+                <div key={dataCards.id} className={dataCards.id > this.state.count ? "hidden" : "Card"} onClick={this.props.click}>
                     <div className="CardImage ">
                         <img src='https://smoking-shop.ru/upload/catalog_files/ce4/ce49cfe5904c8982d9aba7a61d699d4a.jpg'
                              alt='hmmm'/>

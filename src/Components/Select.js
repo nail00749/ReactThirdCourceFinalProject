@@ -8,7 +8,6 @@ class Select extends React.Component{
         this.state = {}
     }
 
-
     render() {
         if(this.props.options) {
             let listItems = ['']
