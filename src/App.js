@@ -8,27 +8,44 @@ import CardsMenu from "./Components/CardsMenu";
 
 
 class App extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+
+
+        this.state = {
+            urlFilters: "https://gist.githubusercontent.com/Wifelly/1bfea8f20244eef1c2cc9c5f552ddde4/raw/e349d7288dee6137939554a4eebc35c3cec707b5/cardsFiltersJson",
+            urlCards: "https://gist.githubusercontent.com/Wifelly/e3085716e924e76a3f992cc2a4047b89/raw/d12a5d1dff0e0fde75e6af40a38e9d95e31d0c50/cardsJson",
+            dataFilter: '',
+            dataCards: null,
+            dict: {
+                levels: '',
+                categories: '',
+                videos: '',
+                languages: ''
+            }
+        }
+
         this.GetData()
-        this.GetFilter = this.GetFilter.bind(this)
+        this.GetFilterLevels = this.GetFilterLevels.bind(this)
+        this.GetFilterCategories = this.GetFilterCategories.bind(this)
+        this.GetFilterLanguages = this.GetFilterLanguages.bind(this)
+        this.GetFilterVideos = this.GetFilterVideos.bind(this)
+        console.log(this.state.dataFilter)
     }
 
-    state = {
-        urlFilters: "https://gist.githubusercontent.com/Wifelly/1bfea8f20244eef1c2cc9c5f552ddde4/raw/e349d7288dee6137939554a4eebc35c3cec707b5/cardsFiltersJson",
-        urlCards: "https://gist.githubusercontent.com/Wifelly/e3085716e924e76a3f992cc2a4047b89/raw/d12a5d1dff0e0fde75e6af40a38e9d95e31d0c50/cardsJson",
-        dataFilter: "",
-        dataCards: null,
-        filter:{
-            levels: '',
-            categories: '',
-            languages: '',
-            videos: '',
-        }
-    }
+
     Delay(ms) {
         return new Promise(resolve => setTimeout(() => {
         }, ms))
+    }
+
+    onSubmit (e){
+        const {filter} = this.state
+        switch (filter) {
+            case 'levels':
+                this.setState({levels: e})
+                break
+        }
     }
 
     GetData = () => {
@@ -55,11 +72,32 @@ class App extends Component {
         })
     }
 
-    GetFilter(e, filter){
-        this.setState({e: filter})
-        console.log(e)
-        console.log(filter)
+    GetFilterLevels(e){
+        let dick = this.state.dict
+        dick.levels = e.target.value
+        this.setState({dict: dick})
     }
+
+    GetFilterCategories(e){
+        let dick = this.state.dict
+        dick.categories = e.target.value
+        this.setState({dict: dick})
+    }
+
+    GetFilterVideos(e){
+        let dick = this.state.dict
+        dick.videos = e.target.value
+        this.setState({dict: dick})
+        console.log(this.state.dict)
+    }
+
+    GetFilterLanguages(e){
+        let dick = this.state.dict
+        dick.languages = e.target.value
+        this.setState({dict: dick})
+
+    }
+
 
     render() {
         return (
@@ -72,10 +110,10 @@ class App extends Component {
 
                     <div className="Filter">
                         <p>Фильтровать статьи по </p>
-                        <Select onChange={this.GetFilter} options={this.state.dataFilter.levels}></Select>
-                        <Select onChange={this.GetFilter} options={this.state.dataFilter.categories}></Select>
-                        <Select onChange={this.GetFilter} options={this.state.dataFilter.languages}></Select>
-                        <Select onChange={this.GetFilter} options={this.state.dataFilter.videos}></Select>
+                        <Select name={'levels'} onChange={this.GetFilterLevels} options={this.state.dataFilter.levels}></Select>
+                        <Select name={'categories'} onChange={this.GetFilterCategories} options={this.state.dataFilter.categories}></Select>
+                        <Select name={'languages'} onChange={this.GetFilterLanguages} options={this.state.dataFilter.languages}></Select>
+                        <Select name={'videos'} onChange={this.GetFilterVideos} options={this.state.dataFilter.videos}></Select>
                     </div>
                 </div>
                     <div className={"MainBlock"}>

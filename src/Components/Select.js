@@ -4,16 +4,16 @@ import {logDOM} from "@testing-library/react";
 class Select extends React.Component{
 
     constructor(props) {
-        super();
+        super(props);
+        this.state = {}
     }
 
 
     render() {
-
         if(this.props.options) {
             let listItems = ['']
             this.props.options.forEach(item => listItems.push(item))
-            let list = listItems.map((item) => <option>{item.toString()}</option>)
+            let list = listItems.map((item, index) => <option key={index}>{item.toString()}</option>)
 
             return (
                 <div>
