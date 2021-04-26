@@ -26,6 +26,7 @@
 
 .Card:hover {
     background-color: #89fff8;
+    transition: background-color 1s
 }
 
 .Card:hover img {
