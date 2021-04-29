@@ -19,42 +19,28 @@ class CardsMenu extends React.Component {
         console.log(this.props.filters)
         console.log(list)
 
-        if(filters.levels !== ""){
+        if (filters.levels !== "") {
             list = list.filter((item) => item.level == filters.levels)
         }
-        if(filters.languages !== ""){
+        if (filters.languages !== "") {
             list = list.filter((item) => item.language == filters.languages)
         }
-        if(filters.categories !== ""){
+        if (filters.categories !== "") {
             list = list.filter((item) => item.category == filters.categories)
         }
-        if(filters.isVideo !== ""){
+        if (filters.isVideo !== "") {
             list = list.filter((item) => item.isVideo.toString() == filters.isVideo)
         }
         console.log('list1', list)
-
-
-        ///
-
         return list
     }
 
 
-    resetIndex = (list) => {
-        let temp = list
-        for (const [index, element] of temp.entries()) {
-            temp[index].id = index
-        }
-        return temp
-    }
-
-
-    //dataCards.id > this.state.count ? "hidden" :
     render() {
         if (this.props.dataCards) {
             let listF = this.filterList(this.props.dataCards, this.props.filters)
-            let listItems = this.props.dataCards.map((dataCards) =>
-                <div key={dataCards.id} className={"Card"} onClick={this.props.click}>
+            let listItems = listF.map((dataCards, i) =>
+                <div key={dataCards.id} className={i > this.state.count ? "hidden" : "Card"} onClick={this.props.click}>
                     <div className="CardImage ">
                         <img src='https://smoking-shop.ru/upload/catalog_files/ce4/ce49cfe5904c8982d9aba7a61d699d4a.jpg'
                              alt='hmmm'/>
