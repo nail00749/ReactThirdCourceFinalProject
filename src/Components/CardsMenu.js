@@ -16,11 +16,22 @@ class CardsMenu extends React.Component {
     }
 
     filterList = (list, filters) => {
+        console.log(this.props.filters)
         console.log(list)
-        console.log(filters)
-        // if(filters.levels !== ""){
-        //     console.log('zalypa')
-        // }
+
+        if(filters.levels !== ""){
+            list = list.filter((item) => item.level == filters.levels)
+        }
+        if(filters.languages !== ""){
+            list = list.filter((item) => item.language == filters.languages)
+        }
+        if(filters.categories !== ""){
+            list = list.filter((item) => item.category == filters.categories)
+        }
+        if(filters.isVideo !== ""){
+            list = list.filter((item) => item.isVideo.toString() == filters.isVideo)
+        }
+        console.log('list1', list)
 
 
         ///

@@ -3,7 +3,6 @@ import './App.css'
 import './Components/Select'
 import Select from "./Components/Select";
 import InputFilter from "./Components/InputFilter";
-import Logo from "./iconLypa.png"
 import CardsMenu from "./Components/CardsMenu";
 
 
