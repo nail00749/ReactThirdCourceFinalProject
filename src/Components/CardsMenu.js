@@ -4,7 +4,7 @@ import "./CardsMenu.css"
 class CardsMenu extends React.Component {
 
     constructor(props) {
-        super();
+        super(props);
         this.state = {
             count: 2
         }

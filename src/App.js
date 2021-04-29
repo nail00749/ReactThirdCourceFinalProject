@@ -46,39 +46,39 @@ class App extends Component {
         fetch(this.state.urlFilters).then((response) => {
             return response.json()
         })
-        .then((data) => {
-            this.setState({dataFilter: data})
-        })
+            .then((data) => {
+                this.setState({dataFilter: data})
+            })
     }
 
     GetDataCards = () => {
         console.log("StartGetDataCards")
-        fetch(this.state.urlCards).then((response) =>{
+        fetch(this.state.urlCards).then((response) => {
             return response.json()
-        }).then((data) =>{
+        }).then((data) => {
             this.setState({dataCards: data})
         })
     }
 
-    GetFilterLevels(e){
+    GetFilterLevels(e) {
         let dick = this.state.dict
         dick.levels = e.target.value
         this.setState({dict: dick})
     }
 
-    GetFilterCategories(e){
+    GetFilterCategories(e) {
         let dick = this.state.dict
         dick.categories = e.target.value
         this.setState({dict: dick})
     }
 
-    GetFilterVideos(e){
+    GetFilterVideos(e) {
         let dick = this.state.dict
         dick.isVideo = e.target.value
         this.setState({dict: dick})
     }
 
-    GetFilterLanguages(e){
+    GetFilterLanguages(e) {
         let dick = this.state.dict
         dick.languages = e.target.value
         this.setState({dict: dick})
@@ -91,20 +91,24 @@ class App extends Component {
                 <div className="Header">
                     <div className="Search">
                         <p>Поиск по ключевым словам</p>
-                        <InputFilter  placeholder="Поиск"></InputFilter>
+                        <InputFilter placeholder="Поиск"/>
                     </div>
 
                     <div className="Filter">
                         <p>Фильтровать статьи по </p>
-                        <Select name={'levels'} onChange={this.GetFilterLevels} options={this.state.dataFilter.levels}></Select>
-                        <Select name={'categories'} onChange={this.GetFilterCategories} options={this.state.dataFilter.categories}></Select>
-                        <Select name={'languages'} onChange={this.GetFilterLanguages} options={this.state.dataFilter.languages}></Select>
-                        <Select name={'videos'} onChange={this.GetFilterVideos} options={this.state.dataFilter.videos}></Select>
+                        <Select name={'levels'} onChange={this.GetFilterLevels}
+                                options={this.state.dataFilter.levels}/>
+                        <Select name={'categories'} onChange={this.GetFilterCategories}
+                                options={this.state.dataFilter.categories}/>
+                        <Select name={'languages'} onChange={this.GetFilterLanguages}
+                                options={this.state.dataFilter.languages}/>
+                        <Select name={'videos'} onChange={this.GetFilterVideos}
+                                options={this.state.dataFilter.videos}/>
                     </div>
                 </div>
-                    <div className={"MainBlock"}>
-                        <CardsMenu dataCards={this.state.dataCards} filters={this.state.dict}></CardsMenu>
-                    </div>
+                <div className={"MainBlock"}>
+                    <CardsMenu dataCards={this.state.dataCards} filters={this.state.dict}/>
+                </div>
 
             </div>
         )

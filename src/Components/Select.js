@@ -16,7 +16,7 @@ class Select extends React.Component{
 
             return (
                 <div>
-                    <select onChange={this.props.onChange}>
+                    <select onChange={(e) => {this.props.onChange(e)}}>
                         {list}
                     </select>
                 </div>
