@@ -31,6 +31,12 @@ class CardsMenu extends React.Component {
         if (filters.isVideo !== "") {
             list = list.filter((item) => item.isVideo.toString() == filters.isVideo)
         }
+        if (filters.word !=="") {
+            list = list.filter((item) =>item.text.includes(filters.word))
+        }
+
+
+
         console.log('list1', list)
         return list
     }

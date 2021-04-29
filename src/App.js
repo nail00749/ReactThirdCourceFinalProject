@@ -18,7 +18,8 @@ class App extends Component {
                 levels: '',
                 categories: '',
                 isVideo: '',
-                languages: ''
+                languages: '',
+                word: ''
             }
         }
 
@@ -27,6 +28,7 @@ class App extends Component {
         this.GetFilterCategories = this.GetFilterCategories.bind(this)
         this.GetFilterLanguages = this.GetFilterLanguages.bind(this)
         this.GetFilterVideos = this.GetFilterVideos.bind(this)
+        this.GetFilterWord = this.GetFilterWord.bind(this)
         console.log(this.state.dataFilter)
     }
 
@@ -83,6 +85,13 @@ class App extends Component {
         this.setState({dict: dick})
     }
 
+    GetFilterWord(e) {
+        let dick = this.state.dict
+        dick.word = e.target.value
+        console.log(dick.word)
+        this.setState({dict: dick})
+    }
+
 
     render() {
         return (
@@ -90,7 +99,7 @@ class App extends Component {
                 <div className="Header">
                     <div className="Search">
                         <p>Поиск по ключевым словам</p>
-                        <InputFilter placeholder="Поиск"/>
+                        <InputFilter placeholder="Поиск" onChange = {this.GetFilterWord}/>
                     </div>
 
                     <div className="Filter">
