@@ -17,7 +17,7 @@ class App extends Component {
             dict: {
                 levels: '',
                 categories: '',
-                videos: '',
+                isVideo: '',
                 languages: ''
             }
         }
